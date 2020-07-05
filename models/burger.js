@@ -7,21 +7,16 @@ var burger = {
     });
   },
   // The variables cols and vals are arrays.
-  create: function(cols, vals, cb) {
-    orm.insertOne("burgers", cols, vals, function(res) {
-      cb(res);
+  create: function(vals, cb) {
+    orm.insertOne("burgers", vals, function(res) {
+      cb;
     });
   },
-  update: function(valOfCol, cb) {
-    orm.updateOne("burgers", valOfCol, function(res) {
-      cb(res);
+  update: function(valOfCol, condition, cb) {
+    orm.updateOne("burgers", valOfCol, condition, function(res) {
+      cb;
     });
   }
-  // delete: function(condition, cb) {
-  //   orm.delete("burgers", condition, function(res) {
-  //     cb(res);
-  //   });
-  // }
 };
 
 // Export the database functions for the controller.

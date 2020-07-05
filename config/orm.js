@@ -1,53 +1,41 @@
 const connection = require("./connection.js");
 
-function printQuestionMarks(num) {
-    var arr = [];
-  
-    for (var i = 0; i < num; i++) {
-      arr.push("?");
-    }
-  
-    return arr.toString();
-  }
-  
-
 const orm = {
-    selectAll: function(cb){
-        var queryString = "SELECT * FROM burgers;";
-        connection.query(queryString, function(err, result) {
-          if (err) {
-            throw err;
-          }
-          cb(result);
-        });    
-    },
+  selectAll: (table, cb) => {
+    connection.query("SELECT * FROM burgers;", function (err, data) {
+      if (err) {
+        console.log("Select all not working.");
+        console.log(data + " orm line 8");
+      }
+      cb(data);
+    });
+  },
     insertOne: function(cols, vals, cb){
         let queryInsert = "INSERT INTO burgers";
         queryInsert += " (";
         queryInsert += cols.toString();
         queryInsert += ") ";
-        queryInsert += "VALUES (";
-        queryInsert += printQuestionMarks(vals.length);
-        queryInsert += ") ";
-        connection.query(queryInsert, vals, function(err, result) {
+        queryInsert += "VALUES (?)";
+        connection.query(queryInsert, vals, function(err, data) {
             if (err) {
               throw err;
             }
-      
-            cb(result);
+            console.log(data)
+            cb(data);
           });
       
     
     },
-    updateOne: function(valOfCol, cb){
-        var queryUpdate = "SELECT * FROM burgers WHERE devoured = ??;";
-        connection.query(queryUpdate, function(err, result) {
+    updateOne: function(valOfCol, condition, cb){
+        var queryUpdate = "UPDATE burgers SET ?? WHERE devoured = ??;";
+        connection.query(queryUpdate, function(err, data) {
           if (err) {
             throw err;
           }
-          cb(result);
+          cb(data);
         });  
     }
 }
 
+// export to burger.js
 module.exports = orm
