@@ -9,12 +9,12 @@ var burger = {
   // The variables cols and vals are arrays.
   create: function(vals, cb) {
     orm.insertOne("burgers", vals, function(res) {
-      cb;
+      return res;
     });
   },
   update: function(valOfCol, condition, cb) {
     orm.updateOne("burgers", valOfCol, condition, function(res) {
-      cb;
+      cb(res);
     });
   }
 };

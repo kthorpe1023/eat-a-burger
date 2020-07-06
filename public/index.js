@@ -1,5 +1,8 @@
 $(function () {
-    $(".change-Burger").on("click", (event) => {
+  let newBurger = {
+    burger: $("#burger").val().trim(),
+  };
+    $(".change-devoured").on("click", (event) => {
       console.log("clicked submit");
   
       let id = $(this).data("id");
@@ -19,7 +22,7 @@ $(function () {
       });
     });
   
-    $(".create-form").on("submit", (event) => {
+    $(".create-form").on("click", (event) => {
       event.preventDefault();
       console.log("clicked submit");
   
@@ -31,7 +34,7 @@ $(function () {
         type: "POST",
         data: newBurger,
       }).then(function () {
-        console.log("created new cat");
+        console.log("created new burger");
         location.reload();
       });
     });

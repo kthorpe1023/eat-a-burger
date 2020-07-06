@@ -5,20 +5,15 @@ const orm = {
     connection.query("SELECT * FROM burgers;", function (err, data) {
       if (err) {
         console.log("Select all not working.");
-        console.log(data + " orm line 8");
       }
       cb(data);
     });
   },
-    insertOne: function(cols, vals, cb){
-        let queryInsert = "INSERT INTO burgers";
-        queryInsert += " (";
-        queryInsert += cols.toString();
-        queryInsert += ") ";
-        queryInsert += "VALUES (?)";
-        connection.query(queryInsert, vals, function(err, data) {
+    insertOne: function(table, vals, cb){
+        connection.query("INSERT INTO ?? SET ?",
+        [{ table }, { burger: vals}], function(err, data) {
             if (err) {
-              throw err;
+              console.log("orm insert not working")
             }
             console.log(data)
             cb(data);
@@ -27,10 +22,10 @@ const orm = {
     
     },
     updateOne: function(valOfCol, condition, cb){
-        var queryUpdate = "UPDATE burgers SET ?? WHERE devoured = ??;";
+        var queryUpdate = "UPDATE burgers SET ${valOfCol} WHERE devoured = ${condition};";
         connection.query(queryUpdate, function(err, data) {
           if (err) {
-            throw err;
+            console.log("orm update not working")
           }
           cb(data);
         });  
