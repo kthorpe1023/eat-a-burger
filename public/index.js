@@ -19,7 +19,7 @@ $(function () {
         type: "PUT",
         data: devouredState,
       }).then(function () {
-        console.log("changed Burger to", newBurger);
+        console.log("changed Burger to" + devouredState);
         location.reload();
       });
     });
@@ -41,8 +41,15 @@ $(function () {
       });
     });
   
-    $("#delete-burger").on("click", function(event) {
+    $(".delete-burger").on("click", function(event) {
       event.preventDefault();
       let id = $(this).data("id");
+      console.log(id + " index line 47")
+      $.ajax("/api/burgers/" + id, {
+        type: "DELETE"
+      }).then(function () {
+        console.log("deleted Burger " + id);
+        location.reload();
+      });
     });
-  });
+    });

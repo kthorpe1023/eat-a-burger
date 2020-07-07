@@ -58,7 +58,22 @@ const orm = {
           // console.log(data + " orm line 30")
           cb(data);
         });  
+    },
+    deleteOne: function(table, condition, cb) {
+      var queryString = "DELETE FROM " + table;
+      queryString += " WHERE ";
+      queryString += condition;
+      console.log(queryString + " orm line 66")
+  
+      connection.query(queryString, function(err, data) {
+        if (err) {
+          console.log("delete orm not working")
+        }
+  
+        cb(data);
+      });
     }
+  
 }
 
 // export to burger.js
