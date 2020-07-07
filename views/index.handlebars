@@ -5,10 +5,9 @@
 <ul>
   {{#each burger}}
     {{#unless devoured}}
-      <li>
-        <p>{{this.name}}</p>
-      </li>
-    {{> burger-block devoured=true}}
+    <li>
+      <p>{{this.name}}</p>{{> burger-block devoured=true}}
+    </li>
     {{/unless}}
   {{/each}}
 </ul>

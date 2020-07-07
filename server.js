@@ -14,7 +14,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
-// app.engine("handlebars", exphbs({partialsDir: "burger-block"}))
 app.set("view engine", "handlebars");
 
 // Import routes and give the server access to them.
