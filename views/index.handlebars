@@ -1,6 +1,7 @@
-<h1>You Gonna Eat that Burger?</h1>
-
-<h2>So ready to devour that burger!</h2>
+<h1 class="title">You Gonna Eat that Burger?</h1>
+<div class="row">
+  <section class=" col-md-6 col-12">
+<h2 class="title">Devour that burger!</h2>
 
 <ul>
   {{#each burger}}
@@ -11,8 +12,10 @@
     {{/unless}}
   {{/each}}
 </ul>
+</section>
 
-<h2>Yum that was dellicious!</h2>
+<section class="col-md-6 col-12">
+<h2 class="title">Yum that was dellicious!</h2>
 
 <ul>
   {{#each burger}}
@@ -23,8 +26,10 @@
     {{/if}}
   {{/each}}
 </ul>
+</div>
+</section>
 
-<h2>Add a Burger to Devour</h2>
+<h2 class="title">Add a Burger to Devour</h2>
 <form class="create-form">
 
   <div class="form-group">

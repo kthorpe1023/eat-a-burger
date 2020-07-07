@@ -9,6 +9,7 @@ router.get("/", function(req, res) {
     let burgerObject = {
       burger: data
     };
+    console.log(data)
     res.render("index", {burger: data});
   });
 });
@@ -25,10 +26,13 @@ router.post("/api/burgers", function(req, res) {
 });
 
 router.put("/api/burgers/:id", function (req, res) {
-  burger.update({ devoured: false }, function (result) {
-  //   if (result.changedRows === 0) {
-  //     return res.status(404).end();
-  //   }
+  var condition = "id=" + req.params.id;
+  console.log(condition + " controller line 29")
+  burger.update({ devoured: true }, condition, function (result) {
+    console.log(result + " controller line 32")
+    // if (result.changedRows === 0) {
+    //   return res.status(404).end();
+    // }
   });
   res.status(200).end();
 });
