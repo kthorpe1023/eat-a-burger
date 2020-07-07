@@ -2,11 +2,13 @@ $(function () {
   let newBurger = {
     burger: $("#burger").val().trim(),
   };
-    $(".change-devoured").on("click", (event) => {
+    $(".change-devoured").on("click", function(event) {
+      event.preventDefault();
       console.log("clicked change");
   
-      let id = $(this).data.id;
-      let devoured = $(this).data.devoured;
+      let id = $(this).data('id');
+      let devoured = $(this).data('devoured');
+      console.log(id + devoured + " index line 8 and 9")
   
       let devouredState = {
         Devoured: devoured,
@@ -22,7 +24,7 @@ $(function () {
       });
     });
   
-    $(".create-form").on("submit", (event) => {
+    $(".create-form").on("submit", function(event) {
       event.preventDefault();
       console.log("clicked submit");
   
@@ -39,7 +41,7 @@ $(function () {
       });
     });
   
-    $("#delete-burger").on("click", (event) => {
+    $("#delete-burger").on("click", function(event) {
       event.preventDefault();
       let id = $(this).data("id");
     });

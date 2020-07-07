@@ -55,7 +55,7 @@ const orm = {
           if (err) {
             console.log("orm update not working")
           }
-          console.log(data + " orm line 30")
+          // console.log(data + " orm line 30")
           cb(data);
         });  
     }
