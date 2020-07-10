@@ -1,16 +1,19 @@
 .title {
     text-align: center;
     font-family: "Arial", Helvetica, sans-serif;
+    /* background-color: lightgoldenrodyellow */
 }
 ul {
     text-align: center;
     list-style-type: none;
+    /* background-color: lightgoldenrodyellow */
 }
 form{
-    text-align: center
+    text-align: center;
+    /* background-color: lightgoldenrodyellow */
 }
 
-body {
-    background-image: "./img/burger.jpg";
-    background-repeat: no-repeat
-}
+/* body {
+    background-image: url(./burger.jpg);
+    background-repeat: no-repeat center;
+} */
