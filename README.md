@@ -1,5 +1,4 @@
 
-  ![GitHub pull request check state](https://img.shields.io/github/status/s/pulls/kthorpe1023/eat-a-burger/0)
   [https://hidden-atoll-33702.herokuapp.com/](https://hidden-atoll-33702.herokuapp.com/)
 # Eat a Burger
 ## Description
